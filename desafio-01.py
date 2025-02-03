@@ -18,18 +18,20 @@ def add_a_contact(contacts):
   print(f"Contact {contact_name} was succesfully added!")
   return
 
-def see_contacts():
+def see_contacts(contacts):
   print("\nContacts list:")
 
   for index, contact in enumerate(contacts, start=1):
-    status = "✓" if contact['is_completed'] else " "
+    status = "*" if contact['is_favorite'] else " "
     contact_name = contact['name']
-    print(f"{index}. [{status}] {contact_name}")
+    contact_phone = contact['phone']
+    contact_email = contact['email']
+    print(f"{index}. [{status}] {contact_name}  {contact_phone}  {contact_email} ")
     
   return
 
 def update_contact(contacts):
-  see_contacts()
+  see_contacts(contacts)
 
   contact_index = int(input("What contact would you like to update"))
   
@@ -51,7 +53,7 @@ def update_contact(contacts):
   
   print(f"Contact succesfully updated!")
 
-  see_contacts()
+  see_contacts(contacts)
   return
 
 def Favorite_unfavorite_contact():
@@ -75,7 +77,7 @@ options_list = {
 
 def run_choice_action(contact_number):
   action_function = options_list[contact_number]
-  action_function()
+  action_function(contacts)
   return
 
 while True:
@@ -90,5 +92,11 @@ while True:
 
   choice = input("Type your choice: ")
 
+  if not choice.isnumeric() or int(choice) > 7 or int(choice) < 1:
+    print("Invalid choice! Action not found")
+    continue
+
   if choice == "7":
     break
+
+  run_choice_action(choice)
