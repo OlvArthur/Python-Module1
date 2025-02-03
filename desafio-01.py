@@ -36,7 +36,7 @@ def see_contacts(contacts, only_favorites=False):
 def update_contact(contacts):
   see_contacts(contacts)
 
-  contact_index = int(input("What contact would you like to update"))
+  contact_index = int(input("What contact would you like to update? \n"))
   
   if contact_index < 1 or contact_index > len(contacts):
     print("Invalid contact!")
@@ -76,7 +76,17 @@ def see_favorite_contacts(contacts):
   see_contacts(contacts, only_favorites=True)
   return
 
-def delete_contact():
+def delete_contact(contacts):
+  see_contacts(contacts)
+
+  contact_index = int(input("What contact would you like to remove?\n"))
+
+  adjusted_contact_index = contact_index - 1
+
+  del contacts[adjusted_contact_index]
+
+  print(f"Contact {contact_index} succesfully removed!")
+
   return
 
 
