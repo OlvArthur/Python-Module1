@@ -56,7 +56,17 @@ def update_contact(contacts):
   see_contacts(contacts)
   return
 
-def Favorite_unfavorite_contact():
+def Favorite_unfavorite_contact(contacts):
+  see_contacts(contacts)
+
+  contact_index = int(input("What contact would you like to favorite/unfavorite?"))
+
+  adjusted_index = contact_index -1
+
+  current_favorite_status = contacts[adjusted_index]["is_favorite"]
+
+  contacts[adjusted_index]["is_favorite"] = not current_favorite_status
+  print(f"Contact {contact_index} was succesfully favorited/unfavorited!")
   return
 
 def see_favorite_contacts():
