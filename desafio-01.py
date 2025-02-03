@@ -28,7 +28,30 @@ def see_contacts():
     
   return
 
-def update_contact():
+def update_contact(contacts):
+  see_contacts()
+
+  contact_index = int(input("What contact would you like to update"))
+  
+  if contact_index < 1 or contact_index > len(contacts):
+    print("Invalid contact!")
+    return
+
+  adjusted_index = int(contact_index) - 1
+
+  contact = contacts[adjusted_index]
+
+  new_contact_name = input("How would you like to rename it?").strip() or contact["name"]
+  new_contact_phone = input("What is their new phone?").strip() or contact["phone"]
+  new_contact_email = input("What it their new email?").strip() or contact["email"]
+
+  contact["name"] = new_contact_name
+  contact["phone"] = new_contact_phone
+  contact["email"] = new_contact_email
+  
+  print(f"Contact succesfully updated!")
+
+  see_contacts()
   return
 
 def Favorite_unfavorite_contact():
