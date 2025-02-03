@@ -18,10 +18,13 @@ def add_a_contact(contacts):
   print(f"Contact {contact_name} was succesfully added!")
   return
 
-def see_contacts(contacts):
+def see_contacts(contacts, only_favorites=False):
   print("\nContacts list:")
 
   for index, contact in enumerate(contacts, start=1):
+    if only_favorites and not contact['is_favorite']:
+      continue
+
     status = "*" if contact['is_favorite'] else " "
     contact_name = contact['name']
     contact_phone = contact['phone']
@@ -69,7 +72,8 @@ def Favorite_unfavorite_contact(contacts):
   print(f"Contact {contact_index} was succesfully favorited/unfavorited!")
   return
 
-def see_favorite_contacts():
+def see_favorite_contacts(contacts):
+  see_contacts(contacts, only_favorites=True)
   return
 
 def delete_contact():
