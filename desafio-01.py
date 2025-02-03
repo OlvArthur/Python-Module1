@@ -59,7 +59,7 @@ def update_contact(contacts):
   see_contacts(contacts)
   return
 
-def Favorite_unfavorite_contact(contacts):
+def favorite_unfavorite_contact(contacts):
   see_contacts(contacts)
 
   contact_index = int(input("What contact would you like to favorite/unfavorite?"))
@@ -94,7 +94,7 @@ options_list = {
   "1": add_a_contact,
   "2": see_contacts,
   "3": update_contact,
-  "4": Favorite_unfavorite_contact,
+  "4": favorite_unfavorite_contact,
   "5": see_favorite_contacts,
   "6": delete_contact
 }
