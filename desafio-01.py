@@ -104,6 +104,7 @@ def run_choice_action(contact_number):
   action_function(contacts)
   return
 
+s
 while True:
   print("\n Contacts manager menu:")
   print("1. Add a contact")
